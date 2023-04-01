@@ -96,7 +96,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType):
             utils.dash_cast,
             hass,
             call.data[ATTR_ENTITY_ID],
-            f"{get_url(hass)}/webrtc/embed?" + urlencode(query),
+            f"{get_url(hass, prefer_external=True)}/webrtc/embed?" + urlencode(query),
         )
 
     hass.services.async_register(DOMAIN, "create_link", create_link, CREATE_LINK_SCHEMA)
